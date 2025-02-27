@@ -1,71 +1,93 @@
 body {
-    background-color: #fff;
-    color: #333;
-    margin: 0;
-    font: 1.2em / 1.2 Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  font: 1.2em / 1.2 Arial, Helvetica, sans-serif;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 .logo {
-    font-size: 200%;
-    padding: 50px 20px;
-    margin: 0 auto;
-    max-width: 980px;
+  font-size: 200%;
+  padding: 50px 20px;
+  margin: 0 auto;
+  max-width: 980px;
+  text-align: center; /* Centers the title for cleaner look */
 }
 
 .grid {
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 980px;
-    display: flex;           /* Creates two-column layout */
-    gap: 20px;              /* Space between columns */
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 980px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Ensures columns stack on smaller screens */
 }
 
 nav {
-    background-color: #000;
-    padding: .5em;
-    position: sticky;       /* Makes nav stick to top when scrolling */
-    top: 0;                 /* Sticks at top of viewport */
-    z-index: 1;            /* Ensures nav stays above content */
+  background-color: #000;
+  padding: 0.5em;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 980px; /* Matches content width */
+  width: 100%; /* Ensures it spans full width within max-width */
+  box-sizing: border-box; /* Prevents padding from overflowing */
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;          /* Displays nav items in a row */
-    justify-content: space-between; /* Equal spacing between items */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between; /* Evenly spaces nav items */
+  align-items: center;
 }
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: .5em 1em;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  display: block; /* Ensures clickable area fills space */
 }
 
 .photos {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;          /* Creates grid for photos */
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 1px;              /* 1px gap between images */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 1px;
 }
 
 .feature {
-    width: 200px;
-    float: left;            /* Makes text wrap around image */
-    margin-right: 15px;     /* Adds space between image and text */
+  width: 200px;
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px; /* Adds space below image for better text flow */
 }
 
 article {
-    flex: 2;               /* Makes article take more space */
+  flex: 2;
+  min-width: 0; /* Prevents flex item from overflowing */
 }
 
 aside {
-    flex: 1;               /* Makes aside take less space */
+  flex: 1;
+  min-width: 0; /* Prevents flex item from overflowing */
+}
+
+h1, h2 {
+  margin-top: 0; /* Removes excess spacing */
+}
+
+/* Clearfix for floated image */
+article::after {
+  content: "";
+  display: table;
+  clear: both;
 }
